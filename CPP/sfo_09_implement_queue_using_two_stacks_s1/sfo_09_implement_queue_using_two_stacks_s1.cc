@@ -1,5 +1,4 @@
 #include "../include/include.hpp"
-#include <stack>
 
 class CQueue {
 public:
