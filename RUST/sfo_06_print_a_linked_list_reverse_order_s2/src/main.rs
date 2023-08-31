@@ -27,14 +27,14 @@ fn vec_to_link_list(num: Vec<i32>) -> Option<Box<ListNode>> {
 impl Solution {
     pub fn reverse_print(head: Option<Box<ListNode>>) -> Vec<i32> {
         let mut res: Vec<i32> = Vec::new();
-        Solution::icur(head, &mut res);
+        Solution::recur(head, &mut res);
         res
     }
 
-    pub fn icur(head: Option<Box<ListNode>>, res: &mut Vec<i32>) {
+    pub fn recur(head: Option<Box<ListNode>>, res: &mut Vec<i32>) {
         match head {
             Some(node) => {
-                Solution::icur(node.next, res);
+                Solution::recur(node.next, res);
                 res.push(node.val);
             }
             None => {}
