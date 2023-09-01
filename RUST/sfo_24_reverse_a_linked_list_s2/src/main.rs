@@ -17,7 +17,18 @@ pub struct Utils {}
 
 impl Solution {
     pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        Solution::recur(head)
+        Self::recur(head, None)
+    }
+
+    fn recur(current: Option<Box<ListNode>>, pre: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        match current {
+            None => pre,
+            Some(mut node) => {
+                let next = node.next.take();
+                node.next = pre;
+                Self::recur(next, Some(node))
+            }
+        }
     }
 }
 
